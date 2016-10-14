@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!-- Mobile Devices Support @begin -->
+		<meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- apple devices fullscreen -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<title>银湖足球月，边嗨边拿钱</title>		
+		<link rel="stylesheet" type="text/css" href="css/base.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dqgryhl.min.css"/>	
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<script type='text/javascript'>
+			var g_rem = 20;
+			(function(docElem, win) {
+				var setFontSize = function() {
+					g_rem = (docElem.getBoundingClientRect().width || docElem.clientWidth || win.innerWidth) / 16;
+					!g_rem && (g_rem = 20);
+					docElem.style.fontSize = g_rem + 'px';
+				}
+				win.addEventListener("resize", setFontSize, false);
+				setFontSize();
+			})(document.documentElement, window);
+		</script>
+		<style type="text/css">
+ /*游戏之后的页面*/  
+   .M_afterGame{
+   	 width: 16rem;
+   	 height: 100%;
+   	 position: absolute;
+   	 top: 0;
+   	 left: 0;
+   	 position: 990;
+   }
+/*挑战成功*/
+   .M_challengeOk{
+   	width: 16rem;
+   	height: 100%;
+   	background-color: #2B73BA;
+   	position: absolute;
+   	top: 0;
+   	left: 0;
+   	display: none;
+   	color: #FFFFFF;
+   	text-align: center;
+   }
+   .M_getRedEnvelope{
+   	display: block;
+   	 background-color: red;
+   	 width: 10rem;
+   	 height: 2rem;
+   	 line-height: 2rem;
+   	 color: #FFFFFF;
+   	 margin: 0 auto;
+   }
+   
+/*挑战失败*/
+   .M_challengeError{
+   	width: 16rem;
+   	height: 100%;
+   	background-color: green;
+   	position: absolute;
+   	top: 0;
+   	left: 0;
+   	display: none;
+
+   	color: #FFFFFF;
+   	text-align: center;
+   }
+   .M_playAgain{
+   	 display: block;
+   	 background-color: red;
+   	 width: 10rem;
+   	 height: 2rem;
+   	 line-height: 2rem;
+   	 color: #FFFFFF;
+   	 margin: 0 auto;
+   }
+   .M_goHome{
+     display: block;
+   	 background-color: red;
+   	 width: 10rem;
+   	 height: 2rem;
+   	 line-height: 2rem;
+   	 color: #FFFFFF;
+   	 margin: 0 auto;
+   }
+   .M_shareFriendError{
+   	 display: block;
+   	 background-color: red;
+   	 width: 10rem;
+   	 height: 2rem;
+   	 line-height: 2rem;
+   	 color: #FFFFFF;
+   	 margin: 0 auto;
+   }
+   .M_shareFriendOK{
+   	display: block;
+   	 background-color: red;
+   	 width: 10rem;
+   	 height: 2rem;
+   	 line-height: 2rem;
+   	 color: #FFFFFF;
+   	 margin: 0 auto;
+   }
+/*输入手机号*/
+	.M_registered{
+		width: 16rem;
+	   	height: 100%;
+	   	background-color: red;
+	   	position: absolute;
+	   	top: 0;
+	   	left: 0;
+	   	display: none;
+	   	   	
+	   	color: #FFFFFF;
+	   	text-align: center;
+	}
+/*未注册*/
+	.M_noRegister{
+		width: 16rem;
+	   	height: 100%;
+	   	background-color: red;
+	   	position: absolute;
+	   	top: 0;
+	   	left: 0;
+	   	display: none;
+	   	color: #FFFFFF;
+	   	text-align: center;
+	}
+/*已经注册*/
+	.M_alreadyRegister{
+		width: 16rem;
+	   	height: 100%;
+	   	background-color: red;
+	   	position: absolute;
+	   	top: 0;
+	   	left: 0;
+	   	display: none;
+	   	
+	   	
+	   	color: #FFFFFF;
+	   	text-align: center;
+	}
+/*领取成功，下载App*/
+   .M_ledOk{
+   		width: 16rem;
+	   	height: 100%;
+	   	background-color: red;
+	   	position: absolute;
+	   	top: 0;
+	   	left: 0;
+	   	display: none;
+	   			   	
+	   	color: #FFFFFF;
+	   	text-align: center;
+   }
+/*分享界面*/
+	.M_share{
+		width: 16rem;
+	   	height: 100%;
+	   	background-color: red;
+	   	position: absolute;
+	   	top: 0;
+	   	left: 0;
+	   	display: none;
+	   	z-index: 992;	   	
+	   	color: #FFFFFF;
+	   	text-align: center;
+	}
+/*活动结束页面*/
+	.M_gameOff{
+		width: 16rem;
+	   	height: 100%;
+	   	background-color: red;
+	   	position: absolute;
+	   	top: 0;
+	   	left: 0;
+	   	display: none;
+	   	
+	   	color: #FFFFFF;
+	   	text-align: center;
+	   	z-index: 999;
+	}
+/*横屏页面*/
+	.M_crossScreen{
+		width: 100%;
+	   	height: 100%;
+	   	background-color: red;
+	   	position: absolute;
+	   	top: 0;
+	   	left: 0;
+	   	display: none;
+	   	color: #FFFFFF;
+	   	text-align: center;
+	   	z-index: 999;
+	}
+/*提示信息*/
+	.M_message{
+		width: 100%;
+	   	height: 100%;
+	   	background-color: #555555;
+	   	position: absolute;
+	   	top: 0;
+	   	left: 0;
+	   	display: none;
+	   	color: #FFFFFF;
+	   	text-align: center;
+	   	z-index: 991;
+	}
+	.M_messageShare{
+		position: absolute;
+		top: 8rem;
+		left: 3rem;
+		width: 10rem;
+		height: 6rem;
+		border-radius:0.5rem ;
+		background-color: red;
+		font-size:0.75rem ;
+		display: none;
+	}
+	.M_messageShare>p{
+		margin-top: 1rem;
+	}
+	.M_messageShare>a{
+		color: #FFFFFF;
+		background-color: #999999;
+		display: block;
+		width: 6rem;
+		height: 2rem;
+		border-radius:0.1rem ;
+		line-height: 2rem;
+		margin-left: 2rem;
+		margin-top: 0.5rem;
+	}
+	.M_messageOver{
+		position: absolute;
+		top: 8rem;
+		left: 3rem;
+		width: 10rem;
+		height: 3rem;
+		border-radius:0.5rem ;
+		background-color:#169AF7;
+		font-size:0.75rem;
+		display: none;
+	}
+	.M_messageOver>a{
+	    margin-top: 1rem;
+		color: #FFFFFF;
+		display: block;
+	}
+	.M_head{
+		position: absolute;
+		top: 1.2rem;
+		left: 1rem;
+		width: 2.7rem;
+		height: 2.7rem;
+		z-index: 200;
+	}
+	.M_head>img{
+		display: block;
+		width: 2.7rem;
+		height: 2.7rem;
+	}
+/*活动锦囊*/
+	.M_kitsList{
+		width: 100%;
+		font-size:0;
+		height: 2rem;
+		border-bottom:thin #FFFFFF solid;
+	}
+    .M_kitsList>li{
+    	display: inline-block;
+    	width: 25%;
+    	font-size:0.7rem ;
+    	text-align: center;
+    	line-height: 2rem;
+    }
+    
+    .M_kitsCount{
+    	position: relative;
+    }
+    .M_kitsCount>li{
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 16rem;
+    	min-height:1rem ;
+    	padding-bottom: 2rem;
+    	display: none;
+    }
+		</style>
+	</head>
+	<body class="gameTpl_-1">
+<!-- 加载页 -->
+		<div id="preloadPage" class="bg">
+			<div class="spinner">
+				<div class="spinner-container container1">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+				<div class="spinner-container container2">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+				<div class="spinner-container container3">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+			</div>
+			<div class="info"><span id="loadPercent">0</span>%</div>
+		</div>
+		<div class="body" id="I_gamePage">
+<!--首页home-->
+			<div class="home">
+				<div id="homeBgBox">
+					<!--首页背景-->
+					<img id="homeBg" src="image/A_backgroundImage.jpg" />
+				</div>
+				<div class="gameInfoBox">
+					<div class="titleImg imgContainer absCenter">
+						<!--展示图片-->
+						<img id="titleImg" class="slaveImg abs" src="image/A_WorldCup.png" style="width:15.9rem;height:8.75rem;top:0.35rem;left:0.05rem;" />
+					</div>
+				</div>
+				<div id="startBtn" class="startBtn imgContainer absCenter" style="top:0rem;">
+					<!--开始按钮图片-->
+					<img id="startBtnImg" class="slaveImg abs" src="image/A_start.png" style="width:7.35rem;height:3.2rem;top:18.25rem;left:4.55rem;" />
+				</div>
+			</div>
+<!-- 活动规则，排行榜，我的奖品的弹出层 -->
+			<div class="ruleImg imgContainer absCenter" id="I_kits">
+				<img id="ruleImg" class="slaveImg abs" src="image/A_ActivityKits.png" style="width:3rem;height:3rem;top:0.15rem;left:12.85rem;" />
+			</div>
+<!--这里是活动锦囊弹出层内容-->
+			<div id="poupInfoBox">
+				<ul class="M_kitsList" id="I_kitsList">
+					<li>活动说明</li>
+					<li>排行榜</li>
+					<li>奖励说明</li>
+					<li id="M_kitsDisappear">点击我</li>
+				</ul>
+				<ul class="M_kitsCount" id="I_kitsCount">
+					<li style="display: block;">我是活动说明</li>
+					<li>我是奖励帮</li>
+					<li>奖励说明</li>
+				</ul>
+			</div>
+<!--游戏页-->			
+			<div class="gameBox hide gameBgBox" id="M_gameC">
+				<div id="gameBgBox">				
+<!--这里是北京图片共需要设置三处-->
+                   <div id="I_gameBg"></div>
+				</div>
+				<div id="gameTopBar" class="gameTopBar" style="color:rgb(255, 255, 255);background-color:transparent" >
+					<div class="timeBox">
+						时间<br><span class="time" id="A_time">0</span>
+					</div>
+				</div>
+				<div id="gameLayerBox">
+
+				</div>
+				<div class="M_head" id="I_head">
+					<img src="image/A_head.png" />
+				</div>
+			</div>
+			
+		</div>
+		</div>
+<!--这里是游戏后页面-->
+<!--挑战成功-->
+    <div id="I_afterGame" class="M_afterGamae">
+        <div class="M_challengeOk" id="I_challengeOk">
+        	<div>挑战成功</div>
+        	<p>获得<span id="I_challengeRed">0</span>元红包</p>
+        	<p>您的成绩为：<span id="I_challengeOkTime">999</span>秒</p>
+        	<a class="M_getRedEnvelope" id="I_getRedEnvelope">领取红包</a>
+        	<a class="M_playAgain" id="I_playAgainOk">再玩一次</a>
+        	<a class="M_shareFriendOK" id="I_shareFriendOK">分享给好友</a>
+        </div>
+<!--领取红包-->
+        <div class="M_registered" id="I_registered">
+        	<!--<p>领奖信息</p>
+			<p>请输入手机号以便领取奖励</p>
+			<ul>
+				<li>
+					<input placeholder="请输入手机号进行领取"/>
+				</li>
+				<li>
+					<input placeholder="请输入验证码" />
+					<div>
+						<img />	
+					</div>
+				</li>
+				<li>
+					<a id="I_next">下一步</a>
+				</li>
+			</ul>
+			<p>若因未填写资料或填写错误导致领奖失败主办方不承担相关法律责任</p>-->
+        </div>
+<!--未注册-->
+		<div class="M_noRegister" id="I_noRegister">
+			<p>未注册页面</p>
+        	<p>
+        		<span>短信验证码已发放至</span>
+        		<span>18832581538</span>
+        	</p>
+        	<ul>
+				<li>
+					<input placeholder="请输入图形验证码"/><p>已经获取<span>56</span>s</p>
+				</li>
+				<li>
+					<input placeholder="请设置6-20位登录密码" />
+				</li>
+				<li>
+					<a id="I_receive">注册并领取</a>
+				</li>
+			</ul>
+        	<p>若因未填写资料或填写错误导致领奖失败主办方不承担相关法律责任</p>
+		</div>
+<!--已经注册-->
+        <div class="M_alreadyRegister" id="I_alreadyRegister">
+        	<p>已注册页面</p>
+        	<p>
+        		<span>领取手机号</span>
+        		<span>18832581538</span>
+        	</p>
+        	<ul>
+				<li>
+					<input placeholder="请输入登录密码" />
+				</li>
+				<li>
+					<a id="I_immediately">立即领取</a>
+				</li>
+			</ul>
+        	<p>若因未填写资料或填写错误导致领奖失败主办方不承担相关法律责任</p>
+        </div>
+
+<!--挑战失败-->
+		<div class="M_challengeError" id="I_challengeError">
+			<div>挑战失败</div>
+        	<p>无法获得红包</p>
+        	<p>（成绩>30s可奖励）</p>
+        	<p>您的成绩为：<span id="I_challengeTime">999</span>秒</p>
+        	<a class="M_playAgain" id="I_playAgainError">再玩一次</a>
+        	<a class="M_goHome" id="I_goHome">返回首页</a>
+        	<a class="M_shareFriendError" id="I_shareFriendError">分享给好友</a>
+		</div>
+<!--活动结束页面-->
+        <div class="M_gameOff" id="I_gameOff">
+        	<p>活动结束页面</p>
+       </div>
+<!--横屏提示信息-->
+       <div class="M_crossScreen" id="I_crossScreen">
+       		<p>横屏页面</p>
+       </div>
+<!--领取成功，下载App-->
+        <div class="M_ledOk" id="I_ledOk">
+        	<p>领取成功</p>
+        	<p>
+        		<span>50</span>
+        		元红包已发送至您的理财账户<br />
+        		速去使用吧
+        	</p>
+        	<p></p>
+        	<p>下载App使用</p>
+        </div>
+    </div>
+<!--提示信息-->
+	<div class="M_message" id="I_message">
+		<div class="M_messageShare" id="I_messageShare">
+			<p>游戏机会已用完，分享可再玩一次</p>
+			<a class="M_messageFriend" id="I_messageFriend">分享给好友</a>
+		</div>
+		<div class="M_messageOver" id="I_messageOver">
+			<a>游戏机会已用完，明日再来吧</a>
+		</div>
+	</div>
+<!--分享页面-->
+        <div class="M_share" id="I_share">
+        	分享页面
+        </div>
+<!--  错误提示信息-->
+    <div>
+  <!--  错误提示信息-->
+    </div>
+    
+    
+  </body>
+<!--引入自己的库-->
+		<script src="js/sun_js_library.js"></script>
+		<script>
+			//游戏对象
+			var S_globalObject={};
+			//今日已玩游戏次数;
+			S_globalObject.times=0;
+			//游戏日期;
+//这个数据以后可以从后端取
+			S_globalObject.day=new Date().getDate();;
+			//每日游戏总次数;
+			S_globalObject.count=4;
+			//拥有今日游戏机会 默认为1 
+			S_globalObject.opportunity=1;
+			//分享页面出现的地方 0是开始1是游戏后 
+			S_globalObject.share=0;
+	//存储基本数据  
+       if(localStorage.getItem("day")==S_globalObject.day){
+       	 console.log("今日已玩");
+       	 function S_BUG(){
+	          localStorage.clear();
+	       	 localStorage.setItem("times",S_globalObject.times);
+		  	 localStorage.setItem("day",S_globalObject.day);
+		  	 localStorage.setItem("count",S_globalObject.count);
+		  	 localStorage.setItem("opportunity",S_globalObject.opportunity);
+       	 }
+       }else{
+       	//没有玩初始化数据
+       	console.log("今日首次玩");
+       	localStorage.setItem("times",S_globalObject.times);
+	  	localStorage.setItem("day",S_globalObject.day);
+	  	localStorage.setItem("count",S_globalObject.count);
+	  	localStorage.setItem("opportunity",S_globalObject.opportunity);
+       }
+		</script>
+		<script type="text/javascript">
+			var _manage = false,
+				m_debug = false,
+				_resRoot = '//hdg.faisys.com',
+				hg = {};
+			function isArray(arr) {
+				return Object.prototype.toString.call(arr) === "[object Array]";
+			}
+			(function(hg) {
+				var imgPaths = [],
+					readyCallBack = [],
+					loadCallBack = [];
+				hg.assets = {
+					complete: false,
+					loadComplete: false,
+					increment: 0,
+					loadingStyle: 1,
+					loadTimeout: 120000,
+					add: function(src) {
+						var self = this;
+						if(self.complete || _manage) {
+							return;
+						}
+						if(isArray(src)) {
+							for(var i = src.length - 1; i >= 0; i--) {
+								self.add(src[i]);
+							};
+						} else if(typeof src === 'string') {
+							imgPaths.push(src);
+						}
+						return this;
+					},
+					onReady: function(callBack) {
+						var self = this;
+						if(self.complete) {
+							callBack();
+						} else {
+							readyCallBack.push(callBack);
+						}
+						return self;
+					},
+					onload: function(callBack) {
+						var self = this;
+						if(self.loadComplete) {
+							callBack();
+						} else {
+							loadCallBack.push(callBack);
+						}
+						return self;
+					},
+					loadPage: function() {
+						if(_manage) return;
+						var self = this,
+							percent = 1,
+							numLoaded = 0,
+							$loadPercent = document.getElementById("loadPercent"),
+							loadPallet;
+						window.scrollTo(0, 0);
+						if(self.loadingStyle === 1) {
+							loadimg(imgPaths)
+						} else if(self.loadingStyle === 3) {
+							var logoImg = document.getElementById("preloadImg");
+							if(logoImg.complete) {
+								initLogoImg()
+							} else {
+								logoImg.onload = initLogoImg
+							}
+
+							function initLogoImg(img) {
+								var img = logoImg;
+								var h = img.height;
+								var w = img.width;
+								var bottomPageInfoDeg = -Math.atan(w / h) - Math.PI / 2;
+								var canvas = document.getElementById("preloadCanvas");
+								var ctx = canvas.getContext("2d");
+								var ratio = (window.devicePixelRatio || 1) / (ctx.backingStorePixelRatio || ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1);
+								var drawImg = function() {
+									ctx.fillStyle = "#fff";
+									ctx.fillRect(0.2 * g_rem * ratio, 0.2 * g_rem * ratio, w * ratio, h * ratio);
+									ctx.drawImage(img, 0.2 * g_rem * ratio, 0.2 * g_rem * ratio, w * ratio, h * ratio)
+								};
+								if(h === w) {
+									if(h > 3.5 * g_rem) {
+										h = w = 3.5 * g_rem
+									}
+									drawImg = function() {
+										ctx.save();
+										ctx.beginPath();
+										ctx.arc(canvas.width / 2, canvas.height / 2, w / 2 * ratio, 0, 2 * Math.PI);
+										ctx.clip();
+										ctx.fillStyle = "#fff";
+										ctx.fill();
+										ctx.drawImage(img, 0.2 * g_rem * ratio, 0.2 * g_rem * ratio, w * ratio, h * ratio);
+										ctx.restore()
+									}
+								} else {
+									if(w > h && w > 8 * g_rem) {
+										h = 8 * g_rem * h / w;
+										w = 8 * g_rem
+									} else {
+										if(h > w && h > 8 * g_rem) {
+											w = 8 * g_rem * w / h;
+											h = 8 * g_rem
+										}
+									}
+								}
+								canvas.width = (w + 0.4 * g_rem) * ratio;
+								canvas.height = (h + 0.4 * g_rem) * ratio;
+								canvas.style.width = w + 0.4 * g_rem + "px";
+								canvas.style.height = h + 0.4 * g_rem + "px";
+								if(h === w) {
+									ctx.beginPath();
+									ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, 2 * Math.PI);
+									ctx.clip()
+								}
+								ctx.strokeStyle = "#69c5ff";
+								ctx.lineWidth = 8 * g_rem * ratio;
+								loadPallet = function(tmp) {
+									ctx.beginPath();
+									ctx.arc(canvas.width / 2, canvas.height / 2, 4 * g_rem * ratio, bottomPageInfoDeg, bottomPageInfoDeg + tmp * (2 * Math.PI / 100));
+									ctx.stroke();
+									drawImg()
+								};
+								loadimg(imgPaths)
+							}
+						}
+						function setPercent(percent) {
+							$loadPercent.innerHTML = percent;
+							if(percent === 100) {
+								var index = 0;
+								setTimeout(function() {
+									index++;
+									if(index < 10) {
+										loadPallet && loadPallet(120);
+										setTimeout(arguments.callee, 17)
+									} else {
+										loadPallet = null
+									}
+								}, 17)
+							}
+							loadPallet && loadPallet(percent)
+						}
+
+						function loading() {
+							if(numLoaded < imgPaths.length) {
+								if(percent < 100 - imgPaths.length + numLoaded) {
+									percent++;
+									setPercent(percent - 1)
+								}
+							} else {
+								percent += 10;
+								percent > 100 && (percent = 100);
+								setPercent(percent - 1)
+							}
+							if(percent >= 100 && typeof $ != 'undefined') {
+								setPercent(100);
+								var flag = $(window).height() / $(window).width() < 1.575;
+								var bgHeight = flag ? $(window).width() * 1.575 : $(window).height();
+								setTimeout(function() {
+									$("#preloadPage").addClass("leftClose");
+									$("#homeBgBox,.gameBgBox").css("height", bgHeight / g_rem + "rem");
+									flag && $(".home .bottomSkill,#bottomSkill").css("top", (bgHeight - $(".bottomSkill").outerHeight()) / g_rem + "rem");
+									setTimeout(function() {
+										$loadPercent = null;
+										$("#preloadPage").hide()
+									}, 500);
+									complete();
+									self.loadComplete = true;
+									for(var n = loadCallBack.length, i = 0; i < n; i++) {
+										loadCallBack[i]()
+									}
+									loadCallBack = null;
+									logoImg = null;
+									$loadPercent = null
+								}, 300);
+								return
+							}
+							setTimeout(arguments.callee, 10)
+						}
+
+						function loadimg(arr) {
+							loading();
+							for(var i = arr.length - 1; i >= 0; i--) {
+								var img = new Image();
+								img.onload = loadCheckComplete;
+								img.onerror = loadCheckComplete;
+								img.src = arr[i];
+								self[arr[i]] = img
+							}
+							if(self.loadTimeout) {
+								self._loadTimer = setTimeout(loadTimeout, self.loadTimeout)
+							}
+						}
+
+						function loadTimeout() {}
+
+						function loadCheckComplete() {
+							numLoaded++;
+							this.assets_complete = true;
+							if(numLoaded === imgPaths.length) {
+								complete()
+							}
+						}
+
+						function complete() {
+							if(self.complete) return;
+							clearTimeout(self._loadTimer);
+							numLoaded = imgPaths.length;
+							self.complete = true;
+							for(var n = readyCallBack.length, i = 0; i < n; i++) {
+								readyCallBack[i]()
+							}
+							readyCallBack = null
+						}
+					}
+				};
+			})(hg);
+			/*----------------------------可编辑元素包装------------------------------------*/
+			hg.edit = null;
+
+			hg.edit = {};
+			//通过conf文件配置可编辑元素的属性
+			(function(hg) {
+				var origin = [{
+					"name": "forward",
+					"pos": {
+						"left": "7.5rem",
+						"top": "15rem"
+					},
+					"size": {
+						"width": "1.85rem",
+						"height": "3.8rem"
+					},
+					"path": [
+//						["http://10168245.h40.faiusr.com/4/7/ACgIABAEGAAg6pXZvgUowISymQUwUDiqAQ.png"],
+//						["http://10168245.h40.faiusr.com/4/7/ACgIABAEGAAg7ZXZvgUo0ovligcwUDiqAQ.png"]
+					]
+				}, {
+					"name": "guard",
+					"pos": {
+						"left": "6.5rem",
+						"top": "7.5rem"
+					},
+					"size": {
+						"width": "1.85rem",
+						"height": "3.2rem"
+					},
+					"path": [
+//						["http://10168245.h40.faiusr.com/4/7/ACgIABAEGAAg8JXZvgUohsv7wAMwUDiMAQ.png"],
+//						["http://10168245.h40.faiusr.com/4/7/ACgIABAEGAAg85XZvgUowJWuoQEwUDiMAQ.png"],
+//						["http://10168245.h40.faiusr.com/4/7/ACgIABAEGAAg9pXZvgUooYG6pwQwUDiMAQ.png"]
+					]
+				}];
+				var originDef = [{
+					"name": "forward",
+					"pos": {
+						"left": "7.5rem",
+						"top": "15rem",
+						"disable": "disable"
+					},
+					"size": {
+						"width": "1.85rem",
+						"height": "3.8rem"
+					},
+					"path": [
+// 这里是足球员图片
+						["image/forward1.png", "图片01", "50k"],
+						["image/forward2.png", "图片02", "50k"]
+					],
+					"edit": "all"
+				}, {	
+					"name": "guard",
+					"pos": {
+						"left": "6.5rem",
+						"top": "7.5rem",
+						"disable": "disable"
+					},
+					"size": {
+						"width": "1.85rem",
+						"height": "3.2rem"
+					},
+					"path": [
+//这里是守卫图片
+						["image/guard1.png", "图片03", "50k"],
+						["image/guard2.png", "图片04", "50k"],
+						["image/guard3.png", "图片05", "50k"]
+						
+					],
+					"edit": "all"
+				}];
+				var originMod = null;
+
+				function correct(list1, list2) {
+					return list2.map(function(val2) {
+						return list1.filter(function(val1) {
+							return val1.name === val2.name;
+						})[0] || val2;
+					});
+				}
+				originMod = originMod ? correct(originMod, originDef) : originMod;
+				origin = originMod ? correct(origin, originMod) : correct(origin, originDef);
+				//将图片放进缓存数组内
+				for(var i = 0; i < originDef.length; i++) {
+					var path = origin[i].path;
+					var pathDef = originMod ? originMod[i].path : originDef[i].path;
+					if(pathDef) {
+						if(!path) {
+							origin[i].path = path = pathDef;
+						} else if(!isArray(path[0]) && isArray(pathDef[0])) {
+							origin[i].path = path = [].concat(pathDef).splice(0, 1, path);
+						}
+						if(isArray(path[0])) {
+							for(var j = 0; j < pathDef.length; j++) {
+								if(!path[j]) path[j] = pathDef[j];
+								if(!path[j][0]) path[j][0] = pathDef[j][0];
+								hg.assets.add(path[j][0].replace('*_resRoot*', _resRoot));
+							}
+						} else {
+							if(!path[0]) path[0] = pathDef[0];
+							hg.assets.add(path[0].replace('*_resRoot*', _resRoot));
+						}
+					}
+				}
+				if(false && origin[1].path[0] == _resRoot + "/image/tgcm/answer.png") {
+					origin[1].path[0] = [_resRoot + "/image/tgcm/drag.png"];
+				}
+				hg.edit.origin = origin;
+				hg.edit.originDef = originDef;
+				hg.edit.originMod = originMod;
+			})(hg);
+
+			/*-----------------------资源loading-----------------------------*/
+			//存放所有loading好的image对象,src为key
+//这里是背景图片
+			hg.assets.add([
+				"image/A_lawn.jpg",
+			]);
+//0%-100% 加载页面js
+			hg.assets.loadPage(); //开始loading页面
+			//全局变量
+			var g_config = {
+				showSkillSup: true, //是否开启技术支持
+				showSlide: false, //是否开启底部轮播
+				showMenu: true,
+				scoreType: true, //成绩为float或者int类型
+				sortType: 0, //成绩排序类型，顺序或者倒序
+				countsTimeType: 1, //计时类型，顺序或者倒序
+				drawLimitDef: 10, //游戏默认门槛
+				scoreSet: 3,
+				style: 38,
+				buy: false,
+				authVer: 2,
+				scoreUnit: '秒',
+				testCMD: 'null',
+				isNewGame: false,
+//				ajaxUrl: '//hd.faisco.cn/ajax/',
+				startTime: '2016-10-10 11:43',
+				test: false,
+				failSrcId: 6008, //srcId
+				setGameTimeInterval: 10, //所有游戏计时时间间隔
+				isDoubleGame: false, //是否是双人游戏
+
+				award: null, //奖品
+				wxAward: null, //
+				comfort: {				
+				}, //安慰奖
+				isRegUserName: false, //是否登记兑奖姓名
+				isRegPhone: false, //是否登记兑奖联系电话
+				isRegAddress: false, //是否登记兑奖联系地址
+				aid: 11287594,
+				gameId: 21,
+				openId: 'oOxwHt3iQubXrxm5Xrzdhm2sfYk8',
+				awardInfoB: "",
+				openAwardLinkNoDraw: false, //非即开型游戏是否开启联系兑奖  
+				awardUsername: '', //联系兑奖的用户姓名
+				awardPhone: '', //联系兑奖的联系电话
+				status: 2,
+				afterWxCard: true,
+				haveAward: false,
+				showHelpGuide: false, //是否显示助力引导页面
+				playerId: 75,
+				ipInfo: {
+				
+				}, //
+				contactNoDraw: "[-1]" //非抽奖派发类型的开启联系兑奖选项信息
+			};
+		</script>
+        <script src="js/jquery-core.min.js" charset="utf-8"></script>
+		<script src="js/hdgame.min.js" charset="utf-8"></script>
+		<script src="js/hdUtil.min.js" charset="utf-8"></script>
+		<script src="js/lufylegend.min.js"  charset="utf-8"></script>
+		<script type="text/javascript">
+			function $$(selector) {
+				if(!_manage) {
+					return $('#__notfound__');
+				}
+				return parent.$(selector);
+			}
+			HdGame.gameDomain = 'hd.faisco.cn';
+			if(false) {
+				HdGame.gameDomain = 'hd.webportal.cc';
+			}
+			HdGame.isReg = false;
+			$(function() {
+					var html = $('html');
+					if(parseFloat(html.css('font-size')) != g_rem) {
+						html.css('font-size', g_rem);
+					}
+				})
+				/*---------------游戏函数回调--------------------*/
+			HdGame.initCallBack(hg);
+			hg.addCallBack(['startGame', 'startGamehead', 'home', 'again', 'jsFootEnd', 'hgLoadEnd', 'save', 'showResult', 'changeBottomBar', 'showPoup', 'hidePoup', 'setGameType', 'timeChange']);
+			hg.showGameBox = true; //是否在开始游戏时默认显示游戏页
+
+			/*----------------------------可编辑元素包装------------------------------------*/
+			//通过conf文件配置可编辑元素的属性
+			if(hg.edit) {
+				HdGame.initEdit(hg.edit);
+			}
+
+			function parseRemToPx(rem) {
+				if(rem.indexOf('rem') === -1) {
+					return parseFloat(rem);
+				}
+				return parseFloat(rem) * g_rem;
+			}
+			/*----------------------------------计时------------------------------------*/
+			hg.time = null;
+			(function(hg) {
+				var initTime = 0;
+				if(!g_config.countsTimeType && initTime === 0) {
+					if(!_manage) {
+						initTime = 99999;
+					} else {
+						if(true) {
+							initTime = 30;
+						} else {
+							initTime = 0;
+						}
+					}
+					$(function() {
+						$('.timeBox').hide();
+					});
+				}
+				hg.time = HdGame.initTime(initTime);
+			})(hg);
+			/*----------------------------------声音-----------------------------------*/
+//这里是背景音乐
+			hg.sound = null;
+			(function(hg) {
+				var soundList = [{
+					"path": "music/bgmusic04H.mp3",
+					"fileName": "背景音乐.mp3",
+					"optFlag": 0
+				}, {
+					"path": "music/err.mp3",
+					"fileName": "失败音效.mp3",
+					"optFlag": 2
+				}];
+				var soundListDef = [{
+					"path": "*/music/bgmusic04H.mp3",
+					"fileName": "背景音乐.mp3",
+					"optFlag": 0
+				}, {
+					"path": "*/music/err.mp3",
+					"fileName": "失败音效.mp3",
+					"optFlag": 2
+				}];
+				var soundListMod = null;
+				if(soundListMod) {
+					$.each(soundListMod, function(index, sound) {
+						soundListDef[index].path = sound.path;
+
+					});
+				}
+				soundListMod = null;
+				if(soundList) {
+					$.each(soundList, function(index, sound) {
+						var soundDef = soundListDef[index];
+						if(index !== 0 && sound.optFlag === 1) {
+							sound.optFlag = 2;
+						}
+						sound.path = HdGame.getSrc(sound.path);
+						soundDef.path = HdGame.getSrc(soundDef.path);
+					});
+				}
+				hg.sound = HdGame.initSound(soundList, soundListDef);
+				hg.sound.load("music/button.mp3", "startButton");
+				if(soundList) {
+					$.each(soundList, function(index, sound) {
+						var path = sound.path;
+						if(index === 0) {
+							hg.sound.load(path, index, false);
+						} else {
+							hg.sound.load(path, index);
+						}
+					});
+					if(!_manage) {
+						hg.sound.cache['0'].data.addEventListener('play', function() {
+							$(function() {
+								hg.assets.onReady(function() {
+									$('.soundIcon').removeClass("soundIconOff");
+								});
+							});
+						}, false);
+						hg.sound.cache['0'].data.addEventListener('pause', function() {
+							$(function() {
+								hg.assets.onReady(function() {
+									$('.soundIcon').addClass("soundIconOff");
+								});
+							});
+						}, false);
+					}
+
+				}
+			})(hg);
+		</script>
+<!--游戏核心js，动画部分-->
+		<script type="text/javascript">
+			var _gameOver = false;
+			HdGame.isReg = false;
+			var GameArg = {
+				createTime: 0.8,
+				first: true
+			};
+			(function() {
+
+				function Guard(x, y) {
+					if(!x) {
+						var xy = GetRandom(0, LF.global.width + LF.global.height + this.data.width);
+						if(xy < LF.global.height / 2) {
+							x = -this.data.width;
+							y = xy;
+						} else if(xy < LF.global.height / 2 + LF.global.width + this.data.width) {
+							y = -this.data.height;
+							x = xy - LF.global.height / 2;
+						} else {
+							x = LF.global.width;
+							y = xy - LF.global.height / 2 - LF.global.width - this.data.width;
+						}
+					}
+					LF.base(this, LF.bitmap, [this.data.img[0], x, y, this.data.width, this.data.height]);
+					this.frameInc = 0;
+					this.speed = [0, 0, 0];
+				}
+				Guard.prototype.slide = function(target) {
+					this.gtype = 'slide';
+					this.speed[0] *= 2;
+					this.speed[1] *= 2;
+					this.bitmapData = this.data.simg;
+					this.fps *= 2.5;
+					this.slideR = 0;
+					this.rotate = Math.atan(this.speed[1] / this.speed[0]) * 180 / Math.PI - 90;
+					if(this.speed[0] < 0) {
+						this.rotate += 180;
+					}
+				};
+				Guard.prototype.update = function(delta, target) {
+					if(this.x < -this.width || this.x > LF.global.width || this.y < -this.height || this.y > LF.global.height) {
+						this.remove();
+						return;
+					}
+					if(this.gtype === 'trace') {
+						this.frameInc += this.fps * delta;
+						this.bitmapData = this.data.img[~~this.frameInc % this.data.img.length];
+						this.speed = trace(this, target, this.speedm);
+						if(this.speed[3] < this.limit[1]) {
+							this.slide();
+						}
+					} else if(this.gtype === 'slide' && getObjDistance(this, target)[2] < this.limit[0]) {
+						return false;
+					}
+					this.x += this.speed[0] * delta;
+					this.y += this.speed[1] * delta;
+				};
+				hg.assets.onReady(function() {
+					var guard = hg.edit.getImgInfo('guard');
+					var forward = hg.edit.getImgInfo('forward');
+					var speedm = $(window).width() / 1800;
+					guard.img = [new LF.bitmapData(hg.assets[guard.path[0]]), new LF.bitmapData(hg.assets[guard.path[1]])];
+					guard.simg = new LF.bitmapData(hg.assets[guard.path[2]]);
+					Guard.prototype.data = guard;
+					Guard.prototype.speedm = speedm;
+					Guard.prototype.fps = 2 * speedm / guard.width;
+					Guard.prototype.gtype = 'trace';
+					var r1 = Math.min(forward.width, forward.height);
+					var r2 = Math.min(guard.width, guard.height);
+					Guard.prototype.limit = [r1 / 3 + r2 / 3, r1 / 2 + r2 / 2 + 3 * g_rem];
+				});
+
+				function Soccer() {
+					LF.base(this, LF.sprite, [true]);
+//这里是背景图片
+					this.bgImg = new LF.bitmapData(hg.assets["image/A_lawn.jpg"]);
+					this.bgImg.w = 16 * g_rem;
+					this.bgImg.h = this.bgImg.height * 16 * g_rem / this.bgImg.width;
+					this.bgNum = Math.ceil(LF.global.height / this.bgImg.h) + 1;
+					this.bg = new LF.sprite();
+					this.addChild(this.bg);
+					this.gLayer = new LF.sprite();
+					this.addChild(this.gLayer);
+					this.tishi = new LF.sprite();
+					this.addChild(this.tishi);
+					this.initTishi();
+					var forward = hg.edit.getImgInfo('forward');
+					this.speed = $(window).width() / 1800;
+					this.forward = new LF.animation([new LF.bitmapData(hg.assets[forward.path[0]]), new LF.bitmapData(hg.assets[forward.path[1]])], null, 2 * this.speed / forward.width, 'loop', 0, 0, forward.width, forward.height);
+					this.forward.width = forward.width;
+					this.forward.height = forward.height;
+					this.addChild(this.forward);
+					this.moveCD = 0;
+					this.Limit = [
+						[-forward.width / 2, LF.global.width - forward.width / 2],
+						[0, LF.global.height - forward.height]
+					];
+					for(var i = 1; i <= this.bgNum; i++) {
+						this.bg.addChild(new LF.bitmap(this.bgImg, 0, LF.global.height - this.bgImg.h * i, this.bgImg.w, this.bgImg.h));
+					}
+					this.addEventListener(LF.event.ENTER_FRAME, this.update.bind(this));
+					LF.global.canvasObj.addEventListener('touchmove', this.moveEvent.bind(this), false);
+					LF.global.canvasObj.addEventListener('touchstart', this.tapEvent.bind(this), false);
+				};
+				Soccer.prototype.moveEvent = function(e) {
+					if(_gameOver || !this._running) {
+						return;
+					}
+					this.moveCD++;
+					if(this.moveCD === 5) {
+						this.moveCD = 0;
+						return;
+					}
+					this.tapEvent(e, true);
+				}
+				Soccer.prototype.tapEvent = function(e, isMove) {
+					if(_gameOver || !this._running) {
+						return;
+					}
+					var touches = e.touches[0];
+					if(!isMove && touches.pageX > LF.global.width - 75 && touches.pageY < 80)
+						return;
+					e.stopPropagation();
+					e.preventDefault();
+					this.touches.x = touches.pageX;
+					this.touches.y = touches.pageY;
+				}
+				Soccer.prototype.update = function() {
+					if(_gameOver || !this._running) return;
+					if(Soccer.locking) {
+						hg.time.start();
+						Soccer.locking = false;
+					} else {
+						clearTimeout(this.lockTimer);
+					}
+					var delta = LF.global.delta;
+					for(var i = 0; i < this.gLayer.childList.length; i++) {
+						var guard = this.gLayer.childList[i];
+						if(guard.update(delta, this.forward) === false) {
+							this.stop();
+							clearTimeout(this._timer);
+							hg.sound.play(1);
+							endGame();
+							return;
+						}
+					}
+					this.forward.speed = trace(this.forward, this.touches, this.speed * 2, true);
+					if(this.forward.speed[1] > 0) {
+						this.forward.speed[0] *= 1.5;
+						this.forward.speed[1] *= 1.5;
+					}
+					this.forward.x += this.forward.speed[0] * delta;
+					this.forward.y += this.forward.speed[1] * delta;
+					this.bg.y += this.speed * delta;
+					if(this.bg.y > this.bgImg.h) {
+						this.bg.y -= this.bgImg.h;
+					}
+					if(this.forward.x < this.Limit[0][0]) {
+						this.forward.x = this.Limit[0][0];
+					} else if(this.forward.x > this.Limit[0][1]) {
+						this.forward.x = this.Limit[0][1];
+					}
+					if(this.forward.y < this.Limit[1][0]) {
+						this.forward.y = this.Limit[1][0];
+					} else if(this.forward.y > this.Limit[1][1]) {
+						this.forward.y = this.Limit[1][1];
+					}
+					this.forward.fps = 2 * (this.forward.speed[2] + this.speed) / this.forward.width;
+					this.lockTimer = setTimeout(function() {
+						hg.time.pause();
+						Soccer.locking = true;
+					}, 600);
+				}
+				Soccer.prototype.initTishi = function() {
+					var maskObj = new LF.bitmap(new LF.bitmapData("#000", 0, 0, LF.global.width, LF.global.height));
+					maskObj.alpha = 0.8;
+					this.tishi.underGraphics = true;
+					this.underGraphics = true;
+					this.tishi.addChild(maskObj);
+					LF.global.canvas.font = "bold " + 1 * g_rem + "px Arial";
+					LF.global.canvas.textAlign = "center";
+					LF.global.canvas.fillStyle = "#fff";
+					this.tishi.graphics.add(function() {
+						LF.global.canvas.fillText("长按并拉动角色", LF.global.width / 2, 4 * g_rem);
+						LF.global.canvas.fillText("进行移动", LF.global.width / 2, 5.5 * g_rem);
+					});
+					this.tishi.visible = false;
+					$('.gameBox .soundIcon').css('z-index', 200);
+				}
+				Soccer.prototype.showTishi = function() {
+					var s = this;
+					this.tishi.visible = true;
+					$('#gameLayerBox').css('z-index', 202);
+					this.forward.bitmap.bitmapData = this.forward.bitmapList[0];
+					this.graphics.drawRoundRect(0.05 * g_rem, "#fff", [5 * g_rem, 16 * g_rem, 6 * g_rem, 2 * g_rem, 0.2 * g_rem]);
+					this.graphics.add(function() {
+						LF.global.canvas.fillText("我知道了", LF.global.width / 2, 17.3 * g_rem);
+					});
+					LF.global.canvasObj.addEventListener('touchstart', function(e) {
+						var x = e.touches[0].pageX,
+							y = e.touches[0].pageY;
+						if(x >= 5 * g_rem && x <= 11 * g_rem && y >= 16 * g_rem && y <= 18 * g_rem) {
+							s.tishi.visible = false;
+							hg.time.start();
+							s.run();
+							s.difficulty();
+							setTimeout(s.play.bind(s), 1000);
+							s.graphics.clear();
+							$('#gameLayerBox').css('z-index', 200);
+							LF.global.canvasObj.removeEventListener('touchstart', arguments.callee);
+						}
+//我知道了 在这里	点击开始游戏，去除浮层					
+						console.log("我知道了")
+					}, false);
+				}
+				Soccer.prototype.init = function() {
+					this.first = true;
+					this.forward.x = LF.global.width / 2 - this.forward.width / 2;
+					this.forward.y = 9.6 * g_rem;
+					this.touches = {
+						width: 0,
+						height: 0,
+						x: LF.global.width / 2,
+						y: this.forward.y + this.forward.height / 2
+					};
+					this.forward.speed = [0, 0, 0];
+					this.gLayer.removeAllChild();
+					this._timerIndex = 0;
+					clearTimeout(this._timer);
+					clearTimeout(this.playTimer);
+					if(!HdGame.isplaySucess) {
+						this.showTishi();
+						this.stop();
+					} else {
+						hg.time.start();
+						this.run();
+						this.difficulty();
+						setTimeout(this.play.bind(this), 1000);
+					}
+				}
+				Soccer.prototype.difficulty = function() {
+					this.createTime = 4000;
+					this.guardNum = ~~(3 + this._timerIndex * 0.5);
+					this.createTime = 4000 - 500 * this._timerIndex;
+					this._timerIndex++;
+					this._timer = setTimeout(arguments.callee.bind(this), 10000);
+				}
+				Soccer.prototype.run = function() {
+					this._running = true;
+					this.forward.play();
+				}
+				Soccer.prototype.stop = function() {
+					this._running = false;
+					this.forward.stop();
+					clearTimeout(this._timer);
+					clearTimeout(this.playTimer);
+				}
+				Soccer.prototype.addGuard = function() {
+					for(var i = 0; i < this.guardNum; i++) {
+						if(this.gLayer.childList.length > Math.min(this.guardNum * 2, 16)) {
+							return;
+						}
+						this.gLayer.addChild(new Guard());
+					}
+				}
+				Soccer.prototype.play = function() {
+					if(hg.time.isRunning()) {
+						this.addGuard();
+					}
+					this.playTimer = setTimeout(arguments.callee.bind(this), this.createTime);
+				}
+
+				function initCanvas() {
+					LF.global.notMouseEvent = true;
+					LF.init(0, "gameLayerBox", 0, 0, initGame, LF.event.INIT);
+				}
+
+				function initGame() {
+					GameArg.soccer = new Soccer();
+					startGame();
+					GameArg.first = false;
+//					$('#gameBgBox').remove();
+				}
+
+				function endGame() {
+					_gameOver = true;
+					hg.time.end();
+					LF.tweenLite.removeAll();
+					LF.tweenLite.to(GameArg.soccer.forward, 0.1, {
+							alpha: 0
+						})
+						.to(GameArg.soccer.forward, 0.1, {
+							alpha: 1
+						})
+						.to(GameArg.soccer.forward, 0.1, {
+							alpha: 0
+						})
+						.to(GameArg.soccer.forward, 0.1, {
+							alpha: 1
+						})
+						.to(GameArg.soccer.forward, 0.1, {
+							alpha: 0
+						})
+						.to(GameArg.soccer.forward, 0.1, {
+							alpha: 1
+						})
+						.to(GameArg.soccer.forward, 0.1, {
+							alpha: 0
+						})
+						.to(GameArg.soccer.forward, 0.1, {
+							alpha: 1,
+							onComplete: function() {
+								LF.global.setPauseLoop(true);;
+								gameOver(hg.time.val);
+							}
+						});
+				}
+
+				function trace(self, target, speedm, flag) {
+					var d = getObjDistance(self, target);
+					if(d[2] < 10) {
+						return [0, 0, 0];
+					}
+					if(flag) {
+						speedm *= d[2] / (5 * g_rem) + 0.2;
+						return [speedm * d[0] / d[2], speedm * d[1] / d[2], speedm];
+					} else {
+						return [speedm * d[0] / d[2], speedm * d[1] / d[2], speedm, d[2]];
+					}
+				}
+
+				function getObjDistance(self, target) {
+					var dx = ~~(target.x + target.width / 2 - self.x - self.width / 2);
+					var dy = ~~(target.y + target.height / 2 - self.y - self.height / 2);
+					return [dx, dy, getDistance(dx, dy)];
+				}
+
+				function getDistance(x, y) {
+					return Math.sqrt(x * x + y * y);
+				}
+
+				function GetRandomNum(a, b) {
+					return a + Math.round(Math.random() * (b - a));
+				}
+
+				function GetRandom(a, b) {
+					return a + Math.random() * (b - a);
+				}
+
+				$(function() {
+					gameInit();
+					if(!_manage) {
+						$('#gameTopBar').css('pointer-events', 'none');
+						hg.showGameBox = false;
+						hg.on('startGame', function() {
+							$('.gameBox').css('visibility', 'hidden').show();
+							if(typeof hg.sound.cache[0] !== 'undefined' && typeof hg.sound.cache[0].playing !== 'undefined' && !hg.sound.cache[0].playing) {
+								hg.sound.readyPlay(0, 0, 'loop');
+							}
+							if(GameArg.first) {
+								initCanvas();
+							} else {
+								startGame();
+							}
+						});
+					}
+					$('.gameBox').on('touchmove', function(event) {
+						event.preventDefault();
+						event.stopPropagation();
+					});
+				});
+			})();
+
+			function startGame() {
+				window.scrollTo(0, 0);
+				LF.global.setPauseLoop(false);;
+				GameArg.soccer.init();
+				_gameOver = false;
+				$('.gameBox').css('visibility', 'visible');
+				$('#ruleImg').hide();
+				$('.homeBtnBox').hide();
+				$('.footerBox').hide();
+				$('.home').hide();
+//这里是开始游戏
+				console.log("开始游戏")
+			}
+
+			function gameInit() {
+				hg.time.init();
+				$('.timeUpImg').hide();
+			}
+
+			function home() {
+				$('#ruleImg').show();
+				$('.homeBtnBox').show();
+				$('.footerBox').show();
+				$('.gameBox').hide();
+				startBtnDelay();
+				$('.home').show();
+				$('#poupInfoBox').hide();
+				$('.resuleBox').hide();
+				gameInit();
+				hg.fire('home');
+console.log("homg")
+			}
+
+			function gameRestart() {
+				$('.gameBox').show();
+				gameInit();
+				startGame();
+				hg.fire('again');
+//重新开始游戏
+             console.log("重新开始游戏")
+			}
+
+			function showGamePage() {
+				$('#ruleImg').hide();
+				$('.homeBtnBox').hide();
+				$('.footerBox').hide();
+				$('.home').hide();
+				$('#poupInfoBox').hide();
+				$('.resuleBox').hide();
+				$('.gameBox').show();
+				
+			}
+		</script>
+
+		<script type="text/javascript">
+			$(function() {
+				//根据setting初始化页面设置
+				HdGame.unPublishMsg();
+				if(true) { //奇葩BUG，魅蓝note如果不加未发布条玩游戏会一直抖，
+					$('.unPublish').css('top', -2 + 'rem'); //目前找不到原因，只能发布之后也出现未发布条，
+				} //然后将top设为负数使其隐藏
+				//总抽奖次数显示逻辑
+				//音乐图标插入游戏位置
+				$('.home').add('.gameBgBox').append('<div class="soundIconOff soundIcon" style="z-index:90"></div>');
+				$('.home .soundIcon:not(".soundIconPlay")').css({
+					"left": '0.75rem',
+					"top": '1rem'
+				});
+
+				$('.home .soundIcon').hide();
+//音乐图标问题
+				(function() {
+					$('.gameBgBox .soundIcon').css('z-index', '100');
+					$('.soundIcon').addClass('soundIconPlay');
+					//音乐图标点击事件
+					var soundPauseCord = 'soundPause|11287594|21|oOxwHt3iQubXrxm5Xrzdhm2sfYk8';
+					$('.soundIcon').on('touchstart', function() {
+						var self = $('.soundIcon');
+						if(!self.hasClass('soundIconOff')) {
+							//关闭音乐
+							hg.sound.allowPlay = false;
+							hg.sound.pauseAll();
+							HdGame.setLocalStorage(soundPauseCord, '-');
+						} else {
+							hg.sound.allowPlay = true;
+							hg.sound.readyPlay(0, 0, 'loop');
+							HdGame.setLocalStorage(soundPauseCord, '');
+						}
+					});
+					if(HdGame.getLocalStorage(soundPauseCord)) {
+						hg.sound.allowPlay = false;
+						hg.sound.pauseAll();
+					}
+					$('#ruleImg').addClass('ruleImgAnimate');
+					$('#startBtnImg,.startBtnImg').on('touchend', function(event) {
+						if(false) {
+							HdGame.statusMsg('你有疑似作弊行为，已被列入黑名单', '');
+							return;
+						}
+						hg.sound.play("startButton");
+						if(typeof hg.sound.cache[0] !== 'undefined' && typeof hg.sound.cache[0].playing !== 'undefined' && !hg.sound.cache[0].playing) {
+							hg.sound.readyPlay(0, 0, 'loop');
+						}
+						startBtnAjax.call(this, event);
+					});
+				})();
+
+			});
+
+			//标题与开始按钮动画
+			function startBtnDelay() {
+				$('.titleImg').removeClass('titleDown').addClass('titleDown');
+				$('#startBtnImg').removeClass('startTada');
+
+				hg.sound.pauseAll();
+
+				setTimeout(function() {
+					$('#startBtnImg').addClass('startTada');
+				}, 1000);
+			}
+			$(function() {
+				if(_manage) {
+					startBtnDelay();
+				} else {
+					hg.assets.onload(startBtnDelay);
+				}
+			})
+
+			/*----------------PK环节--------------------*/
+			function startBtnAjax(event) {
+				if(false) {
+					HdGame.statusMsg(2);
+					hg.sound.allowPlay = false;
+					hg.sound.pauseAll();
+					return;
+				}
+
+				var that = this;
+				if(!hg.fireWith('startGamehead', that, [event])) {
+					return;
+				}
+				if(false) {
+					HdGame.statusMsg("活动尚未发布", '最多测试人数为100人！');
+					if(typeof startStatus !== 'undefined') {
+						startStatus = true;
+					}
+					return;
+				}
+				if(true) {
+					if(hg.showGameBox) {
+						$('.homeBtnBox').hide();
+						$('.footerBox').hide();
+						$('.home,#ruleImg').hide();
+						$('.gameBox').show();
+						if(typeof hg.sound.cache[0] !== 'undefined' && typeof hg.sound.cache[0].playing !== 'undefined' && !hg.sound.cache[0].playing) {
+							hg.sound.readyPlay(0, 0, 'loop');
+						}
+					}
+					HdGame.logDog(1000002, 6008);
+					HdGame.logObjDog(1000092, 1, 21);
+					hg.fireWith('startGame', that, [false, event]);
+				} else {
+					HdGame.statusMsg("该游戏已超过最大参与人数！");
+				}
+			}
+//gameOver
+//gameOver
+//gameOver
+//gameOver
+//gameOver
+//gameOver
+//游戏结束后的处理
+			function gameOver(_gameScore, callBack, option) {
+//游戏页消失          
+                $("#I_afterGame").css("display","block")
+				$("#I_gamePage").css("display","none");
+				console.log("孙景欣")
+				console.log("在这里楼")
+				console.log(hg.time.pastTime.toFixed(2));
+				var S_gameTime=hg.time.pastTime.toFixed(2);
+				//挑战失败
+				if(S_gameTime<0){
+					localStorage.setItem("opportunity","0");
+					$("#I_challengeError").css("display","block");
+					$("#I_challengeTime").html(hg.time.pastTime.toFixed(2));
+				//禁止屏幕滑动	
+					C_scrollBar("stop");//move。
+				}else{
+				//挑战成功
+				    localStorage.setItem("opportunity","0");
+					$("#I_challengeOk").css("display","block");
+					$("#I_challengeOkTime").html(hg.time.pastTime.toFixed(2));
+					if(hg.time.pastTime.toFixed(2)>70){
+						$("#I_challengeRed").html(50);
+					}else if(hg.time.pastTime.toFixed(2)>50){
+						$("#I_challengeRed").html(40);
+					}else if(hg.time.pastTime.toFixed(2)>30){
+						$("#I_challengeRed").html(30);
+					}
+					C_scrollBar("stop");
+				}		
+			}
+//开始挑战按钮的点击事件  
+		$("#startBtn")[0].addEventListener("touchstart",function(){
+            S_globalObject.share=="0";
+			console.log("ok");
+			if(Number(localStorage.getItem("opportunity"))<1){
+				if(Number(localStorage.getItem("times")==4)){
+					$("#I_message").css("display","block");
+					$("#I_messageOver").css("display","block");
+					$("#I_messageShare").hide();
+				}else{
+					$("#I_message").css("display","block");
+					$("#I_messageShare").css("display","block");
+					$("#I_messageOver").hide();
+				}
+			}else{				
+				localStorage.setItem("opportunity","0");
+				if(Number(localStorage.getItem("times")<4)){
+					S_gameCount();
+				}else{
+					$("#I_message").css("display","block");
+					$("#I_messageOver").css("display","block");		
+				}
+			}
+	
+			
+		},false)
+//			$("#I_messageOver").css("display","block");
+//挑战失败页再玩一次
+    $("#I_playAgainError")[0].addEventListener("touchstart",function(){
+    	   S_globalObject.share=1;
+    	   $("#I_challengeError").css("display","none");
+		   $("#I_gamePage").css("display","block");	
+		   C_scrollBar("move");//move。
+			if(Number(localStorage.getItem("opportunity"))<1){
+				if(Number(localStorage.getItem("times")==4)){
+					$("#I_message").css("display","block");
+					$("#I_messageOver").css("display","block");
+					$("#I_messageShare").hide();
+				}else{
+					$("#I_message").css("display","block");
+					$("#I_messageShare").css("display","block");
+					$("#I_messageOver").hide();
+				}
+			}else {	
+				if(Number(localStorage.getItem("times")<4)){
+					localStorage.setItem("opportunity","0");
+					gameRestart();
+					S_gameCount();
+				}
+				if(Number(localStorage.getItem("times")==4)){
+				   $("#I_message").css("display","block");
+				   $("#I_messageOver").css("display","block");
+				}
+			}		
+	   },false);
+//挑战失败也返回首页
+    $("#I_goHome")[0].addEventListener("touchstart",function(){
+    	   $("#I_challengeError").css("display","none");
+		   $("#I_gamePage").css("display","block");	
+		   C_scrollBar("move");//move。
+		   home();
+		   localStorage.setItem("opportunity","0");
+	   },false);
+//挑战成功 领取红包
+		$("#I_getRedEnvelope")[0].addEventListener("touchstart",function(){
+    	   $("#I_challengeOk").css("display","none");
+    	   $("#I_registered").css("display","block");
+		   C_scrollBar("move");//move。
+		    gameRestart();
+	    },false);
+//挑战成功再玩一次
+		$("#I_playAgainOk")[0].addEventListener("touchstart",function(){
+		  //为了取消分享停留页面 
+		   S_globalObject.share=1;
+    	   $("#I_challengeOk").css("display","none");
+		   $("#I_gamePage").css("display","block");	
+		   C_scrollBar("move");//move。
+		   if(Number(localStorage.getItem("opportunity"))<1){
+				if(Number(localStorage.getItem("times")==4)){
+					$("#I_message").css("display","block");
+					$("#I_messageOver").css("display","block");
+					$("#I_messageShare").hide();
+				}else{
+					$("#I_message").css("display","block");
+					$("#I_messageShare").css("display","block");
+					$("#I_messageOver").hide();
+				}
+			}else {	
+				if(Number(localStorage.getItem("times")<4)){
+				   localStorage.setItem("opportunity","0");
+				   gameRestart();
+				   S_gameCount();
+				}else{
+					$("#I_message").css("display","block");
+					$("#I_messageOver").css("display","block");
+				}
+			}	
+	    },false);
+//挑战成功分享给好友
+     $("#I_shareFriendOK")[0].addEventListener("touchstart",function(){
+     	$("#I_message").css("display","none");
+		$("#I_share").css("display","block");
+		S_globalObject.share="2";
+     },false)
+//挑战失败分享给好友
+     $("#I_shareFriendError")[0].addEventListener("touchstart",function(){
+     	$("#I_message").css("display","none");
+		$("#I_share").css("display","block");
+		S_globalObject.share="2";
+     },false)
+//这里需要向后端发送ajax请求    判断是否已经注册
+//注册手机号下一步
+//	$("#I_next")[0].addEventListener("touchstart",function(){
+//		$("#I_challengeOk").css("display","none");
+//		$("#I_noRegister").css("display","block");
+//	},false)
+//这里需要向后端发送ajax请求   提交信息到后端跳转到下载App
+//已注册页面 注册并领取
+    $("#I_receive")[0].addEventListener("touchstart",function(){
+		$.ajax({
+		type : 'POST',
+//		url : '/register/sendRegisterSms.bl',
+		timeout : 30000,
+//		data : "mobileNo="+phoneNumber,
+		context : $('body'),
+		success : function(data) {
+			console.log(data)
+			$(".wrapperDiv").css("display", "none");
+			if (data.status == 0) {
+				errorAlert(data.msg);
+				$(".Captcha")[0].src = "/captcha/getKaptchaImage.bl";
+				return;
+			}else{// 添加倒计时
+				if($(".spanYan").html()=="重新获取"||$(".spanYan").html()=="获取短信验证码"){
+			       	function spanYan(){
+			       	 var timer=60;
+			       	 var clearSet=setInterval(function(){
+			       	   $(".spanYan").css("color","#767676")
+			       	  timer--;
+			       	  if(timer>0){
+			       	  	$(".spanYan").html("已获取 "+timer+" s");
+			       	  }else{
+			       	  	$(".spanYan").html("重新获取");
+			       	  	$(".spanYan").css("color","#FE7740")
+			       	  	clearInterval(clearSet)
+			       	  }
+			        },1000)
+			       }
+			      spanYan();	
+			   }
+			}	
+		},
+		error : function(xhr, type) {
+			$(".wrapperDiv").css("display", "none");
+			var errorMsg="系统开小差  请稍后再试";
+    	    errorAlert(errorMsg);
+		}
+	});
+    	$("#I_ledOk").css("display","block")
+    },false)
+
+//分享给好友按钮 
+	$("#I_messageFriend")[0].addEventListener("touchstart",function(){
+		$("#I_message").css("display","none");
+		$("#I_share").css("display","block");
+		localStorage.setItem("opportunity","1");
+	},false)
+//分享页面的取消
+	$("#I_share")[0].addEventListener("touchstart",function(){
+		if(S_globalObject.share=="0"){
+			$(this).css("display","none");		
+		}else if(S_globalObject.share=="1"){
+			$(this).css("display","none");
+			S_gameCount();
+			gameRestart();
+		}else if(S_globalObject.share=="2"){
+			$(this).css("display","none");	
+			localStorage.setItem("opportunity","1");
+		}
+	},false);
+//横屏页面
+	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+        if (window.orientation === 180 || window.orientation === 0) { 
+            $("#I_crossScreen").css("display","none");
+        } 
+        if (window.orientation === 90 || window.orientation === -90 ){ 
+            $("#I_crossScreen").css("display","block");
+        }  
+    }, false);
+// 锦囊t图标部分
+   $("#I_kits")[0].addEventListener("touchstart",function(){
+   	 $("#poupInfoBox").css("display","block");
+   },false);
+//锦囊页面
+	$("#M_kitsDisappear")[0].addEventListener("touchstart",function(){
+   	 $("#poupInfoBox").hide();
+   },false);
+//锦囊里面的点击事件
+	$("#I_kitsList>li").click(function(){
+		console.log($(this).index());
+		for(var i=0;i<3;i++){
+			$("#I_kitsCount li").eq(i).hide();
+		}
+		$("#I_kitsCount li").eq($(this).index()).show();
+		if($(this).index()=='3'){
+			$("#I_kitsCount li").eq(0).show();
+		}
+	})
+//封装函数
+//记录游戏次数
+function S_gameCount(){
+	if(localStorage.getItem("times")=='0'){
+			localStorage.setItem("times","1");
+		}else if(localStorage.getItem("times")=='1'){
+			localStorage.setItem("times","2");
+		}else if(localStorage.getItem("times")=='2'){
+			localStorage.setItem("times","3");
+		}else if(localStorage.getItem("times")=='3'){
+			localStorage.setItem("times","4");
+		}else if(localStorage.getItem("times")=='4'){
+			console.log("没有机会了")
+	};
+}
+// 开挂模式
+// S_BUG();
+		</script>
+<script>
+//游戏过期
+	window.onload=function(){
+		var Expiration_time = new Date();
+//		alert(Expiration_time);
+//		$("#I_gameOff").css("display","block")
+console.log("ajax")
+		$.ajax({
+			type : 'get',
+			url : ' /activity/init.bl',
+			timeout : 30000,
+			success : function(data) {
+				console.log("456");
+				console.log(data.status);
+			},
+			error : function(xhr, type) {
+//				var errorMsg="系统开小差  请稍后再试";
+//  	   	 errorAlert(errorMsg);
+            console.log("ooo")
+		}
+	  });
+	}
+</script>
+</html>
